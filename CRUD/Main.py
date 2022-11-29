@@ -1,4 +1,5 @@
 from Menu import Menu
+import os
 
 class Main:
     def __init__(self):
@@ -11,8 +12,9 @@ class Main:
             try:              
                 opcion=int(input(">> "))
             except:
-                self.menu.Valor()
-                input('ingrese un numero')
+                print('deve ingresar un numero')
+                input()
+                os.system('cls')
             if opcion == 1:
                 pass
             if opcion == 2:
