@@ -18,6 +18,34 @@ USE `agenda`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `grupo`
+--
+
+DROP TABLE IF EXISTS `grupo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `grupo` (
+  `idGrupo` int NOT NULL AUTO_INCREMENT,
+  `idPersona` int NOT NULL,
+  `idReunion` int NOT NULL,
+  PRIMARY KEY (`idGrupo`),
+  KEY `idPersona` (`idPersona`),
+  KEY `idReunion` (`idReunion`),
+  CONSTRAINT `grupo_ibfk_1` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`),
+  CONSTRAINT `grupo_ibfk_2` FOREIGN KEY (`idReunion`) REFERENCES `reunion` (`idReunion`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `grupo`
+--
+
+LOCK TABLES `grupo` WRITE;
+/*!40000 ALTER TABLE `grupo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `grupo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `persona`
 --
 
@@ -26,11 +54,11 @@ DROP TABLE IF EXISTS `persona`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `persona` (
   `idPersona` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(10) DEFAULT NULL,
-  `apellido` varchar(10) DEFAULT NULL,
+  `nombre` varchar(20) DEFAULT NULL,
+  `apellido` varchar(20) DEFAULT NULL,
   `ci` int DEFAULT NULL,
   PRIMARY KEY (`idPersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -51,14 +79,11 @@ DROP TABLE IF EXISTS `reunion`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reunion` (
   `idReunion` int NOT NULL AUTO_INCREMENT,
-  `idPersona` int NOT NULL,
   `temaReunion` varchar(20) DEFAULT NULL,
   `lugar` varchar(20) DEFAULT NULL,
   `fecha` varchar(20) DEFAULT NULL,
   `hora` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`idReunion`),
-  KEY `idPersona` (`idPersona`),
-  CONSTRAINT `reunion_ibfk_1` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`)
+  PRIMARY KEY (`idReunion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -80,4 +105,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-29 15:12:31
+-- Dump completed on 2022-11-29 18:52:59
