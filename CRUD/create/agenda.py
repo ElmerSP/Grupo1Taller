@@ -1,16 +1,13 @@
 class Agenda:
-    def __init__(self,idAgenda,idPersona,temaReunion,lugar,fecha,hora):
-        self._idAgenda=idAgenda
-        self._idPersona=idPersona
+    def __init__(self,idReunion,temaReunion,lugar,fecha,hora):
+        self._idReunion=idReunion
         self._temaReunion=temaReunion
         self._lugar=lugar
         self._fecha=fecha
         self._hora=hora
         
-    def get_idAgenda(self):
-        return self._idAgenda
-    def get_idPersona(self):
-        return self._idPersona
+    def get_idReunion(self):
+        return self._idReunion
     def get_temaReunion(self):
         return self._temaReunion
     def get_lugar(self):
@@ -20,7 +17,7 @@ class Agenda:
     def get_hora(self):
         return self._hora
     
-    def set_idAgenda(self,idAgenda):
+    def set_idReunion(self,idAgenda):
         self._idAgenda=idAgenda
     def set_idPersona(self,idPersona):
         self._idPersona=idPersona
