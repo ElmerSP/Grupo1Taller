@@ -1,5 +1,5 @@
-from Menu import Menu
-from CRUD.create.Funciones import Funciones
+from Menu import *
+from create.Funciones import Funciones
 import os
 
 class Main:
@@ -13,7 +13,7 @@ class Main:
             try:              
                 opcion=int(input(">> "))
             except:
-                print('deve ingresar un numero')
+                print('debe ingresar un numero')
                 input()
                 os.system('cls')
             if opcion == 1:
