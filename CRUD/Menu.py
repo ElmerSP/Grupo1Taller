@@ -6,3 +6,4 @@ class Menu:
         [2] Ver       [4] Eliminar
               [0] salir
         ''')
+      
