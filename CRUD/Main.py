@@ -1,4 +1,5 @@
 from Menu import Menu
+from update.mainUpdate import MainUpdate
 from read.mainread import MainRead
 from delete.maindelete import MainDelete
 from create.MenuCreate import MenuCreate
@@ -9,6 +10,7 @@ class Main:
         self.menu = Menu()
         self.mainread = MainRead()
         self.maindelete = MainDelete()
+        self.mainUpdate = MainUpdate()
           
     def Inicio(self):
         opcion =-1
@@ -25,7 +27,7 @@ class Main:
             if opcion == 2:
                 self.mainread.InicioMenu()
             if opcion == 3:
-                pass
+                self.mainUpdate.InicioMenu()
             if opcion == 4:
                 self.maindelete.MenuEliminar()
             elif opcion == 0:
