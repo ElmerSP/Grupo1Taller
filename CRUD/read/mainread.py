@@ -1,17 +1,23 @@
-from read.MenuRead import menuread
+from Menu import Menu
 from read.persona import Conector
 from read.agenda import Agenda
+import os
 class MainRead:
     def __init__(self):
-        self.menu2 = menuread() 
+        self.menu = Menu() 
         self.persona = Conector()
         self.agenda = Agenda()
         
     def InicioMenu(self):
         opcion =-1
         while opcion!=0:
-            self.menu2.menu()
-            opcion= int(input('Ingrese su opcion por favor... '))
+            self.menu.menuRead()
+            try:              
+                opcion=int(input('Ingrese su opcion: '))
+            except:
+                print('deve ingresar un numero')
+                input()
+                os.system('cls')
             if opcion == 1:
                 self.agenda.consultaFecha()
             if opcion == 2:
