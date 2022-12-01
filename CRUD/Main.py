@@ -1,28 +1,24 @@
 from Menu import Menu
-from CRUD.create.Funciones import Funciones
-import os
-
+from read.mainread import MainRead
+from delete.maindelete import MainDelete
 class Main:
     def __init__(self):
-        self.menu = Menu()
-        self.funcion=Funciones()
+        self.menus = Menu()
+        self.mainread = MainRead()
+        self.maindelete = MainDelete()
+        
     def Inicio(self):
         opcion =-1
         while opcion!=0:
-            self.menu.menuPrincipal()
-            try:              
-                opcion=int(input(">> "))
-            except:
-                print('deve ingresar un numero')
-                input()
-                os.system('cls')
+            self.menus.menuPrincipal()
+            opcion= int(input('Ingrese su opcion por favor... '))
             if opcion == 1:
-                self.funcion.RegistrarPersona()
+                self.funciones.Insertar()
             if opcion == 2:
-                pass
+                self.mainread.InicioMenu()
             if opcion == 3:
-                pass
+                self.funciones.Actualizar()
             if opcion == 4:
-                pass
+                self.maindelete.MenuEliminar()
             elif opcion == 0:
-                print('gracias...')
+                print('gracias por usar el sistema...')
