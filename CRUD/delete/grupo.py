@@ -1,13 +1,13 @@
 from DataBase.Connection import Connection
 import os
 
-class EliminarPersona:
+class EliminarGrupo:
     def __init__(self):
         self.coneccion = Connection()
 
-    def eliminapersona(self):
-            nombre = input('Ingrese el nombre del que quiere eliminar: ')
-            sql = "delete from persona where nombre = '%s'" %nombre
+    def eliminargrupo(self):
+            numeroID = int(input('Ingrese el numero de ID que quiere eliminar: '))
+            sql = "delete from grupo where idgrupo = '{}'".format(numeroID)
             self.coneccion.cursor.execute(sql)
             self.coneccion.connection.commit()
             print("Elemento eliminado \n")
