@@ -1,4 +1,4 @@
-from create.Persona import Persona
+from create.persona import Persona
 from create.agenda import Agenda
 from create.ConexionBD import RegistroDB
 
